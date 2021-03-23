@@ -23,17 +23,24 @@
                 <div class="title">
                     <h1>ITEMS</h1>
                 </div>
-                <div class="formItems" id="formItems">
-                    <ul class="list-group">
-                        <li class="list-item" id="list">
-                            <input class="form-check-input me-1" id="formCheckInput" type="checkbox" value=""
+                <div class="formItems" id="formItemsId">
+                    <form class="list-group" id="listItems" name="form">
+                        <li class="list-item">
+                            <input class="formCheckInput" type="checkbox" name="check[]" value=""
                                 aria-label="...">
-                            jQuery</li>
-                        <li class="list-item" id="list2">
-                            <input class="form-check-input me-1" id="formCheckInput1" type="checkbox" value=""
+                            jQuery
+                        </li>
+                        <li class="list-item">
+                            <input class="formCheckInput" type="checkbox" name="check[]" value=""
                                 aria-label="...">
-                            AngularJS</li>
-                    </ul>
+                            AngularJS
+                        </li>
+                        <li class="list-item">
+                            <input class="formCheckInput" type="checkbox" name="check[]" value=""
+                                aria-label="...">
+                            xaeo
+                        </li>
+                    </form>
                 </div>
             </div>
 
@@ -52,14 +59,16 @@
                     <h1>SELECTEDS</h1>
                 </div>
                 <div id="formSelectedId" class="formSelected">
-                    <ul class="list-group">
-                        <li class="list-selected">
-                            <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+                    <form class="list-group" id="listSelected" name="formS">
+                        <li class="list-selected" id="selected">
+                            <input class="formCheckInput" type="checkbox" value="" aria-label="..."
+                                name="check[]">
                             ReactJS</li>
                         <li class="list-selected">
-                            <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+                            <input class="formCheckInput" type="checkbox" value="" aria-label="..."
+                                name="check[]">
                             JavaScript</li>
-                    </ul>
+                    </form>
                 </div>
             </div>
         </div>
@@ -76,34 +85,49 @@
     </script>
 
     <script>
+        // Left button
+
+        document.getElementById("btnLeft").addEventListener("click", transfertLeft);
+
+        function transfertLeft() {
+
+
+            // var form = document.getElementById("formItemsid");
+            // var usersB = document.getElementById("formItemsId");
+            var item = document.getElementsByTagName("li");
+            var ok = document.querySelectorAll("formCheckInput");
+
+            for (i = 0; i < ok.length; i++) {
+
+                if (ok[i].checked) {
+
+                    document.getElementById('listItems').appendChild(item[i]);
+                }
+            }
+        }
+
+
         // Right button
 
-        // document.getElementById("btnRight").addEventListener("click", switchRight);
 
-        // function switchRight() {
-        //     if (formCheckInput.checked == true) {
-        //         document.getElementById("formSelectedId").appendChild(list)
-        //         formCheckInput.checked == false
-        //     } else {
-        //         alert("Check avant!!!");
-        //     }
+        // document.getElementById("btnRight").addEventListener("click", transfertRight);
 
-        // }
+        // function transfertRight() {
 
-        // function quantite(selectObject) {
-        //     let qteSelection = 0;
-        //     for (let i = 0; i < selectObject.options.length; i++) {
-        //         if (selectObject.options[i].selected) {
-        //             qteSelection++;
+
+        //     // var form = document.getElementById("formItemsid");
+        //     // var usersB = document.getElementById("formSelectedId");
+        //     var item = document.getElementsByTagName("li");
+        //     var ok = document.querySelectorAll("formCheckInput");
+
+        //     for (i = 0; i < ok.length; i++) {
+
+        //         if (ok[i].checked) {
+
+        //             document.getElementById('listSelected').appendChild(item[i]);
         //         }
         //     }
-        //     return qteSelection;
         // }
-
-        // let btn = document.getElementById("btnRight");
-        // btn.addEventListener("click", function () {
-        //     alert('Nombre d\'options choisies : ' + quantite(document.selectForm.formCheckInput))
-        // });
     </script>
 </body>
 
