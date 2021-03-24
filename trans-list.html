@@ -26,21 +26,29 @@
                 <div class="formItems" id="formItemsId">
                     <form class="list-group" id="listItems" name="form">
                         <li class="list-item">
-                            <input class="formCheckInput" type="checkbox" name="check[]" value=""
-                                aria-label="...">
+                            <input class="formCheckInput" type="checkbox" name="check[]" value="" aria-label="...">
                             jQuery
                         </li>
                         <li class="list-item">
-                            <input class="formCheckInput" type="checkbox" name="check[]" value=""
-                                aria-label="...">
+                            <input class="formCheckInput" type="checkbox" name="check[]" value="" aria-label="...">
                             AngularJS
                         </li>
                         <li class="list-item">
-                            <input class="formCheckInput" type="checkbox" name="check[]" value=""
-                                aria-label="...">
-                            xaeo
+                            <input class="formCheckInput" type="checkbox" name="check[]" value="" aria-label="...">
+                            VueJS
+                        </li>
+                        <li class="list-item">
+                            <input class="formCheckInput" type="checkbox" name="check[]" value="" aria-label="...">
+                            PHP
+                        </li>
+                        <li class="list-item">
+                            <input class="formCheckInput" type="checkbox" name="check[]" value="" aria-label="...">
+                            Ruby on Rails
                         </li>
                     </form>
+                </div>
+                <div class="itemsNomber" id="itemsNomber">
+                    <label id="itemsNbrId" for="itemsNbr">dd</label>
                 </div>
             </div>
 
@@ -61,17 +69,33 @@
                 <div id="formSelectedId" class="formSelected">
                     <form class="list-group" id="listSelected" name="formS">
                         <li class="list-selected" id="selected">
-                            <input class="formCheckInput" type="checkbox" value="" aria-label="..."
-                                name="check[]">
-                            ReactJS</li>
+                            <input class="formCheckInput" type="checkbox" value="" aria-label="..." name="check[]">
+                            ReactJS
+                        </li>
                         <li class="list-selected">
-                            <input class="formCheckInput" type="checkbox" value="" aria-label="..."
-                                name="check[]">
-                            JavaScript</li>
+                            <input class="formCheckInput" type="checkbox" value="" aria-label="..." name="check[]">
+                            JavaScript
+                        </li>
+                        <li class="list-selected">
+                            <input class="formCheckInput" type="checkbox" value="" aria-label="..." name="check[]">
+                            Java
+                        </li>
+                        <li class="list-selected">
+                            <input class="formCheckInput" type="checkbox" value="" aria-label="..." name="check[]">
+                            Python
+                        </li>
+                        <li class="list-selected">
+                            <input class="formCheckInput" type="checkbox" value="" aria-label="..." name="check[]">
+                            TypeScript
+                        </li>
                     </form>
                 </div>
+                <div class="selectedNumber" id="selectedNumber">
+                    <label id="selectedNbrId" for="selectedNbr">ee</label>
+                </div>
+
             </div>
-        </div>
+        </div>           
     </div>
 
 
@@ -91,43 +115,38 @@
 
         function transfertLeft() {
 
-
-            // var form = document.getElementById("formItemsid");
-            // var usersB = document.getElementById("formItemsId");
-            var item = document.getElementsByTagName("li");
-            var ok = document.querySelectorAll("formCheckInput");
+            item = document.getElementsByTagName("li");
+            ok = document.querySelectorAll(".formCheckInput");
 
             for (i = 0; i < ok.length; i++) {
 
                 if (ok[i].checked) {
-
                     document.getElementById('listItems').appendChild(item[i]);
-                }
+                    ok[i].checked = false;
+                } 
             }
         }
 
 
         // Right button
 
+        document.getElementById("btnRight").addEventListener("click", transfertRight);
 
-        // document.getElementById("btnRight").addEventListener("click", transfertRight);
+        function transfertRight() {
 
-        // function transfertRight() {
+            item = document.getElementsByTagName("li");
+            ok = document.querySelectorAll(".formCheckInput");
 
+            for (i = 0; i < ok.length; i++) {
 
-        //     // var form = document.getElementById("formItemsid");
-        //     // var usersB = document.getElementById("formSelectedId");
-        //     var item = document.getElementsByTagName("li");
-        //     var ok = document.querySelectorAll("formCheckInput");
+                if (ok[i].checked) {
+                    document.getElementById('listSelected').appendChild(item[i]);
+                    ok[i].checked = false;
+                } 
+            }
+        }
 
-        //     for (i = 0; i < ok.length; i++) {
-
-        //         if (ok[i].checked) {
-
-        //             document.getElementById('listSelected').appendChild(item[i]);
-        //         }
-        //     }
-        // }
+        
     </script>
 </body>
 
