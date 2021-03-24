@@ -17,12 +17,12 @@
 <body>
     <div class="container mt-4">
         <div class="row text-center">
-
             <!-- Colonne Items -->
-            <div class="col-5">
+            <div class="col-4  border border-dark">
                 <div class="title">
                     <h1>ITEMS</h1>
                 </div>
+                <hr>
                 <div class="formItems" id="formItemsId">
                     <form class="list-group" id="listItems" name="form">
                         <li class="list-item">
@@ -46,26 +46,22 @@
                             Ruby on Rails
                         </li>
                     </form>
-                </div>
-                <div class="itemsNomber" id="itemsNomber">
-                    <label id="itemsNbrId" for="itemsNbr">dd</label>
-                </div>
+                </div>               
             </div>
-
             <!-- Fléche de direction -->
-            <div class="col-2">
+            <div class="col-4">
                 <div class="btn-group" role="group" aria-label="Basic mixed styles example">
                     <button type="button" id="btnLeft" class="btn btn-danger">Left</button>
                     <button type="button" class="btn btn-warning" disabled>SWITCH</button>
                     <button type="button" id="btnRight" class="btn btn-success">Right</button>
                 </div>
             </div>
-
             <!-- Colonnes selected -->
-            <div class="col-5">
+            <div class="col-4 border border-dark">
                 <div class="title">
                     <h1>SELECTEDS</h1>
                 </div>
+                <hr>
                 <div id="formSelectedId" class="formSelected">
                     <form class="list-group" id="listSelected" name="formS">
                         <li class="list-selected" id="selected">
@@ -90,12 +86,20 @@
                         </li>
                     </form>
                 </div>
-                <div class="selectedNumber" id="selectedNumber">
-                    <label id="selectedNbrId" for="selectedNbr">ee</label>
-                </div>
-
             </div>
-        </div>           
+        </div>
+        <div class="row justify-content-between text-center">
+            <div class="col-4 border border-dark border-2">
+                <div class="itemsNomber" id="itemsNomber">
+                    <label id="itemsNbrId" for="itemsNbr"></label>
+                </div>
+            </div>
+            <div class="col-4 border border-dark border-2">
+                <div class="selectedNumber" id="selectedNumber">
+                    <label id="selectedNbrId" for="selectedNbr"></label>
+                </div>
+            </div>
+        </div>
     </div>
 
 
@@ -123,7 +127,8 @@
                 if (ok[i].checked) {
                     document.getElementById('listItems').appendChild(item[i]);
                     ok[i].checked = false;
-                } 
+
+                }
             }
         }
 
@@ -142,11 +147,23 @@
                 if (ok[i].checked) {
                     document.getElementById('listSelected').appendChild(item[i]);
                     ok[i].checked = false;
-                } 
+                }
             }
         }
 
-        
+        // Nombres d'Items      
+
+        function compte() {
+
+            var test = document.querySelectorAll("#listItems li").length;
+            var test1 = document.querySelectorAll("#listSelected li").length;
+            document.getElementById("itemsNbrId").innerText = test + " " + "items";
+            document.getElementById("selectedNbrId").innerText = test1 + " " + "selected";
+            setTimeout(compte, 100)
+
+        }
+
+        compte();
     </script>
 </body>
 
