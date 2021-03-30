@@ -153,17 +153,17 @@
 
         // Nombres d'Items      
 
-        function compte() {
+        function counter() {
 
-            var test = document.querySelectorAll("#listItems li").length;
-            var test1 = document.querySelectorAll("#listSelected li").length;
-            document.getElementById("itemsNbrId").innerText = test + " " + "items";
-            document.getElementById("selectedNbrId").innerText = test1 + " " + "selected";
-            setTimeout(compte, 100)
+            var count = document.querySelectorAll("#listItems li").length;
+            var count2 = document.querySelectorAll("#listSelected li").length;
+            document.getElementById("itemsNbrId").innerText = count + " " + "items";
+            document.getElementById("selectedNbrId").innerText = count2 + " " + "selected";
+            setTimeout(counter, 100)
 
         }
 
-        compte();
+        counter();
     </script>
 </body>
 
